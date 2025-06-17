@@ -26,7 +26,7 @@ public class UserController {
         return userRepository.findAll()
                 .stream()
                 .map(
-                        user -> new UserDto(user.getId(), user.getName(), user.getEmail(), LocalDateTime.now())
+                        user -> new UserDto(user.getId(), user.getName(), user.getEmail())
 //                        userMapper::toDto
                 ).toList();
     }
@@ -37,7 +37,7 @@ public class UserController {
          if(user == null) {
              return ResponseEntity.notFound().build();
          }
-         var userDto = new UserDto(user.getId(), user.getName(), user.getEmail(), LocalDateTime.now());
+         var userDto = new UserDto(user.getId(), user.getName(), user.getEmail());
 //        return ResponseEntity.ok(userMapper.toDto(user));
         return ResponseEntity.ok(userDto);
     }
