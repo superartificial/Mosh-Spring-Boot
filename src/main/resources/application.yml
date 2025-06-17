@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3307/store?createDatabaseIfNotExist=true
+    username: root
+    password: password
+
+  jpa:              # note needs to be under spring context
+    show-sql: true
+
+#  hibernate:
+#    ddl-auto: create

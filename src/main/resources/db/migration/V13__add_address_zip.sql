@@ -1,0 +1,2 @@
+ALTER TABLE addresses
+    ADD COLUMN zip VARCHAR(10) NULL;
