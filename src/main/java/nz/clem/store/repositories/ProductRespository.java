@@ -3,17 +3,35 @@ package nz.clem.store.repositories;
 import nz.clem.store.dtos.ProductSummary;
 import nz.clem.store.entities.Category;
 import nz.clem.store.entities.Product;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.*;
 import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.query.Param;
 
 import java.math.BigDecimal;
+import java.util.Collection;
 import java.util.List;
 
 public interface ProductRespository extends JpaRepository<Product, Long>, ProductCriteriaRepository, JpaSpecificationExecutor<Product> {
+
+    @EntityGraph(attributePaths = "category")
+    List<Product> findByCategoryId(Byte categoryId);
+
+    @EntityGraph(attributePaths = "category")
+    @Query("select p from Product p")
+    List<Product> findAllWithCategory();
+
+
+
+
+
+
+
+
+
+
+
+
+    /* DEMO */
 
     // Generally better to use interfaces for DTOs, only use classes when needing to add logic
     @Query("select new nz.clem.store.dtos.ProductSummaryDTO(p.id, p.name) from Product p where p.category = :category")
@@ -32,4 +50,5 @@ public interface ProductRespository extends JpaRepository<Product, Long>, Produc
     @Query("update Product p set p.price = :newPrice where p.category.id = :categoryId")
     void updatePriceByCategory(@Param("newPrice") BigDecimal newPrice,@Param("categoryId") Byte categoryId);
 
+    Collection<Object> findAllByCategory(Category category);
 }

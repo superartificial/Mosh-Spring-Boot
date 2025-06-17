@@ -21,7 +21,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findAllWithAddresses();
 
     // dont need @EntityGraph because profile eagerly loaded
-    @Query("SELECT u.id as id, u.email as email FROM User u WHERE u.profile.loyaltyPoints > :minPoints ORDER BY u.email")
-    List<UserSummary> findLoyalUsers(@Param("minPoints") Integer minPoints);
+//    @Query("SELECT u.id as id, u.email as email FROM User u WHERE u.profile.loyaltyPoints > :minPoints ORDER BY u.email")
+//    List<UserSummary> findLoyalUsers(@Param("minPoints") Integer minPoints);
 
 }

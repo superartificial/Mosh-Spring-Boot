@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class UserDto {
 
-    @JsonProperty("user_id")
+//    @JsonProperty("user_id")
     private Long id;
     private String name;
     private String email;

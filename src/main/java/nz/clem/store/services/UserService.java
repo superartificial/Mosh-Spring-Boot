@@ -72,6 +72,7 @@ public class UserService {
         });
     }
 
+    /*
     @Transactional
     public void findProfilesWithLoyaltyPointsGreaterThan() {
         userRespository.findLoyalUsers(5)
@@ -79,5 +80,7 @@ public class UserService {
                         u -> System.out.println(u.getEmail())
                 );
     }
+
+     */
 
 }

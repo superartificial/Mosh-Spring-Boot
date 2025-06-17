@@ -1,17 +1,18 @@
 package nz.clem.store.controllers;
 
 import lombok.AllArgsConstructor;
+import nz.clem.store.dtos.RegisterUserRequest;
 import nz.clem.store.dtos.UserDto;
+import nz.clem.store.entities.User;
 import nz.clem.store.mappers.UserMapper;
 import nz.clem.store.repositories.UserRepository;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @AllArgsConstructor
@@ -22,13 +23,15 @@ public class UserController {
     private final UserMapper userMapper;
 
     @GetMapping
-    public List<UserDto> getAllUsers() {
-        return userRepository.findAll()
-                .stream()
-                .map(
-                        user -> new UserDto(user.getId(), user.getName(), user.getEmail())
-//                        userMapper::toDto
-                ).toList();
+    // best practice to name parameter even if the same as variable name, in case we decide to change variable name later
+    public List<UserDto> getAllUsers(
+            @RequestParam(required = false, defaultValue = "", name = "sort") String sort
+    ) {
+        if(!Set.of("name", "email").contains(sort))
+            sort = "name";
+        return userRepository.findAll(Sort.by(sort))
+            .stream()
+            .map(userMapper::toDto).toList();
     }
 
     @GetMapping("/{id}")
@@ -37,9 +40,15 @@ public class UserController {
          if(user == null) {
              return ResponseEntity.notFound().build();
          }
-         var userDto = new UserDto(user.getId(), user.getName(), user.getEmail());
-//        return ResponseEntity.ok(userMapper.toDto(user));
-        return ResponseEntity.ok(userDto);
+        return ResponseEntity.ok(userMapper.toDto(user));
+    }
+
+    @PostMapping
+    public RegisterUserRequest createUser(@RequestBody RegisterUserRequest request) {
+//        userRepository.save(userMapper.toEntity(userDto));
+        var user = userMapper.toEntity(request);
+        System.out.println(user);
+        return null;
     }
 
 }
