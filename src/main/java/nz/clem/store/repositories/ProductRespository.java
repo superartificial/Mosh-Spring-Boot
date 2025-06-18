@@ -1,6 +1,5 @@
 package nz.clem.store.repositories;
 
-import nz.clem.store.dtos.ProductSummary;
 import nz.clem.store.entities.Category;
 import nz.clem.store.entities.Product;
 import org.springframework.data.jpa.repository.*;
@@ -34,8 +33,8 @@ public interface ProductRespository extends JpaRepository<Product, Long>, Produc
     /* DEMO */
 
     // Generally better to use interfaces for DTOs, only use classes when needing to add logic
-    @Query("select new nz.clem.store.dtos.ProductSummaryDTO(p.id, p.name) from Product p where p.category = :category")
-    List<ProductSummary> findByCategory(@Param("category") Category category);
+//    @Query("select new nz.clem.store.dtos.ProductSummaryDTO(p.id, p.name) from Product p where p.category = :category")
+//    List<ProductSummary> findByCategory(@Param("category") Category category);
 
     List<Product> findByName(String name);
 

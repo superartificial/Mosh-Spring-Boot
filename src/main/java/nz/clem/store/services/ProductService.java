@@ -72,8 +72,8 @@ public class ProductService {
     }
 
     public void fetchProductsByCategory() {
-        productRepository.findByCategory(new Category((byte)4))
-                .forEach(System.out::println);
+//        productRepository.findByCategory(new Category((byte)4))
+//                .forEach(System.out::println);
 
     }
 
