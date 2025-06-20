@@ -7,5 +7,8 @@ spring:
   jpa:              # note needs to be under spring context
     show-sql: true
 
+  jwt:
+    secret: ${JWT_SECRET}
+
 #  hibernate:
 #    ddl-auto: create

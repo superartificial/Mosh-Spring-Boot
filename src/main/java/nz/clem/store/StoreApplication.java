@@ -1,12 +1,9 @@
 package nz.clem.store;
 
 import nz.clem.store.services.ProductService;
-import nz.clem.store.services.UserService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-
-import java.math.BigDecimal;
 
 @SpringBootApplication
 public class StoreApplication {
