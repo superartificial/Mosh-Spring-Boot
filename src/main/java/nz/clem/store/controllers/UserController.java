@@ -3,6 +3,7 @@ package nz.clem.store.controllers;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import nz.clem.store.dtos.*;
+import nz.clem.store.entities.Role;
 import nz.clem.store.mappers.UserMapper;
 import nz.clem.store.repositories.UserRepository;
 import nz.clem.store.services.DemoUserService;
@@ -61,6 +62,7 @@ public class UserController {
         }
         var user = userMapper.toEntity(request);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRole(Role.USER);
         userRepository.save(user);
         var uri = uriBuilder.path("/users/{id}").buildAndExpand(user.getId()).toUri();
         return ResponseEntity.created(uri).body(userMapper.toDto(user));

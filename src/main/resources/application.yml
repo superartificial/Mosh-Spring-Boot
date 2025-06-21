@@ -4,11 +4,14 @@ spring:
     username: root
     password: password
 
-  jpa:              # note needs to be under spring context
+  jpa:
     show-sql: true
 
   jwt:
     secret: ${JWT_SECRET}
+    accessTokenExpiration: 900
+    refreshTokenExpiration: 604800
+
 
 #  hibernate:
 #    ddl-auto: create
