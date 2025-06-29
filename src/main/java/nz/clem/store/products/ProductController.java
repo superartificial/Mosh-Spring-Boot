@@ -21,6 +21,7 @@ public class ProductController {
     public List<ProductDto> getProducts(
             @RequestParam(name = "categoryId", required = false) Byte categoryId
     ) {
+        System.out.println("GET PRODUCTS: categoryId = " + categoryId );
         List<Product> products;
         if(categoryId != null) {
             products = productRespository.findByCategoryId(categoryId);

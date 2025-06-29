@@ -42,6 +42,7 @@ public class UserController {
             @Valid @RequestBody RegisterUserRequest request,
             UriComponentsBuilder uriBuilder
     ) {
+        System.out.println("REGISTER USER");
         var user = userService.register(request);
         var uri = uriBuilder.path("/users/{id}").buildAndExpand(user.getId()).toUri();
         return ResponseEntity.created(uri).body(userMapper.toDto(user));
