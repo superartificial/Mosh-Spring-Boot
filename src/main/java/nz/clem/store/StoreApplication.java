@@ -1,6 +1,6 @@
 package nz.clem.store;
 
-import nz.clem.store.services.ProductService;
+import nz.clem.store.products.ProductService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;

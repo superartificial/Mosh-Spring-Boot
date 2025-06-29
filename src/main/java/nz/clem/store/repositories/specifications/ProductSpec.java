@@ -1,6 +1,6 @@
 package nz.clem.store.repositories.specifications;
 
-import nz.clem.store.entities.Product;
+import nz.clem.store.products.Product;
 import org.springframework.data.jpa.domain.Specification;
 
 import java.math.BigDecimal;
