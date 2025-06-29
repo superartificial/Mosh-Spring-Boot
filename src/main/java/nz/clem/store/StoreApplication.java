@@ -1,6 +1,5 @@
 package nz.clem.store;
 
-import nz.clem.store.products.ProductService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -14,8 +13,8 @@ public class StoreApplication {
 //        var service = context.getBean(UserService.class);
 //        service.deleteRelated();
 
-        var service = context.getBean(ProductService.class);
-        service.fetchPaginatedProducts(0, 3);
+//        var service = context.getBean(ProductService.class);
+//        service.fetchPaginatedProducts(0, 3);
 
     }
 
