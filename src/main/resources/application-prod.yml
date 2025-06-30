@@ -2,6 +2,8 @@ spring:
   datasource:
     url: ${SPRING_DATASOURCE_URL}
 websiteUrl: https://mystore.com
-
+server:
+  address: 0.0.0.0
+  port: ${PORT:8080}
 #  hibernate:
 #    ddl-auto: create
