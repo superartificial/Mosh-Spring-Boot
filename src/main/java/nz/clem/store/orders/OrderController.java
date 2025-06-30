@@ -1,8 +1,8 @@
 package nz.clem.store.orders;
 
 import lombok.AllArgsConstructor;
-import nz.clem.store.exceptions.OrderNotFoundException;
-import nz.clem.store.dtos.ErrorDto;
+import nz.clem.store.common.exceptions.OrderNotFoundException;
+import nz.clem.store.common.ErrorDto;
 import nz.clem.store.auth.AuthService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

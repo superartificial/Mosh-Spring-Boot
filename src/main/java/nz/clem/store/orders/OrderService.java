@@ -2,8 +2,7 @@ package nz.clem.store.orders;
 
 import lombok.AllArgsConstructor;
 import nz.clem.store.auth.AuthService;
-import nz.clem.store.exceptions.OrderNotFoundException;
-import nz.clem.store.repositories.OrderRepository;
+import nz.clem.store.common.exceptions.OrderNotFoundException;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Service;
 

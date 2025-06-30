@@ -1,4 +1,4 @@
-package nz.clem.store.controllers.validation;
+package nz.clem.store.common.validation;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;

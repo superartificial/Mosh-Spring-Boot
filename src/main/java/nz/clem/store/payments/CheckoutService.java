@@ -1,11 +1,11 @@
 package nz.clem.store.payments;
 
 import lombok.RequiredArgsConstructor;
-import nz.clem.store.exceptions.CartEmptyException;
-import nz.clem.store.exceptions.CartNotFoundException;
+import nz.clem.store.common.exceptions.CartEmptyException;
+import nz.clem.store.common.exceptions.CartNotFoundException;
 import nz.clem.store.orders.Order;
 import nz.clem.store.carts.CartRepository;
-import nz.clem.store.repositories.OrderRepository;
+import nz.clem.store.orders.OrderRepository;
 import nz.clem.store.auth.AuthService;
 import nz.clem.store.carts.CartService;
 import org.springframework.stereotype.Service;

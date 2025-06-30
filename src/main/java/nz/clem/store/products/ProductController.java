@@ -7,6 +7,10 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 
+/*
+Note: Needs to be refactored to use a Service layer
+ */
+
 @CrossOrigin(origins = "*")
 @RestController
 @AllArgsConstructor

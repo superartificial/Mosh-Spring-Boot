@@ -1,4 +1,4 @@
-package nz.clem.store.repositories.specifications;
+package nz.clem.store.common;
 
 import nz.clem.store.products.Product;
 import org.springframework.data.jpa.domain.Specification;

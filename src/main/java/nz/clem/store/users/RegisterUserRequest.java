@@ -4,7 +4,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
-import nz.clem.store.controllers.validation.LowerCase;
+import nz.clem.store.common.validation.LowerCase;
 
 @Data
 public class RegisterUserRequest {

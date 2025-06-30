@@ -1,4 +1,4 @@
-package nz.clem.store.controllers.filters;
+package nz.clem.store.common.filters;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

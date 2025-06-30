@@ -2,10 +2,10 @@ package nz.clem.store.payments;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import nz.clem.store.exceptions.CartEmptyException;
-import nz.clem.store.exceptions.CartNotFoundException;
-import nz.clem.store.dtos.ErrorDto;
-import nz.clem.store.repositories.OrderRepository;
+import nz.clem.store.common.exceptions.CartEmptyException;
+import nz.clem.store.common.exceptions.CartNotFoundException;
+import nz.clem.store.common.ErrorDto;
+import nz.clem.store.orders.OrderRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

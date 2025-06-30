@@ -1,4 +1,4 @@
-package nz.clem.store.exceptions;
+package nz.clem.store.common.exceptions;
 
 public class CartNotFoundException extends RuntimeException {
     public CartNotFoundException() {

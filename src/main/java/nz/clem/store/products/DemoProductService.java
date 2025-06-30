@@ -2,7 +2,7 @@ package nz.clem.store.products;
 
 import lombok.AllArgsConstructor;
 import nz.clem.store.users.UserRepository;
-import nz.clem.store.repositories.specifications.ProductSpec;
+import nz.clem.store.common.ProductSpec;
 import org.springframework.data.domain.*;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 
 @Service
 @AllArgsConstructor
-public class ProductService {
+public class DemoProductService {
 
     private final UserRepository userRepository;
     private final ProductRespository productRepository;

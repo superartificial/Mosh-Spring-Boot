@@ -1,4 +1,4 @@
-package nz.clem.store.dtos;
+package nz.clem.store.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

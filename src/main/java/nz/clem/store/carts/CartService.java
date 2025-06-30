@@ -1,7 +1,7 @@
 package nz.clem.store.carts;
 
 import lombok.AllArgsConstructor;
-import nz.clem.store.exceptions.CartNotFoundException;
+import nz.clem.store.common.exceptions.CartNotFoundException;
 import nz.clem.store.products.ProductNotFoundException;
 import nz.clem.store.products.ProductNotInCartException;
 import nz.clem.store.products.ProductRespository;

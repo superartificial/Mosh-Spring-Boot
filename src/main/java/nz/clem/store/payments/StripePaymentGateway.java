@@ -9,7 +9,7 @@ import com.stripe.net.Webhook;
 import com.stripe.param.checkout.SessionCreateParams;
 import nz.clem.store.orders.Order;
 import nz.clem.store.orders.OrderItem;
-import nz.clem.store.repositories.OrderRepository;
+import nz.clem.store.orders.OrderRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 

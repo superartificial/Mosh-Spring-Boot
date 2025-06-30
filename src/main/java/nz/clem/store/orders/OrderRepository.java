@@ -1,6 +1,5 @@
-package nz.clem.store.repositories;
+package nz.clem.store.orders;
 
-import nz.clem.store.orders.Order;
 import nz.clem.store.users.User;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;

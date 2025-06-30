@@ -26,6 +26,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
+import java.util.List;
 
 @ControllerAdvice
 @EnableWebSecurity
@@ -34,6 +35,7 @@ public class SecurityConfig {
 
     private final UserDetailsService userDetailsService;
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
+    private final List<SecurityRules> featureSecurityRules; // Spring will initialize a list of components that implement this interface, as long as they are marked with @Component
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -44,21 +46,10 @@ public class SecurityConfig {
 
                 .sessionManagement(c -> c.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(c -> c
-                        .requestMatchers("/carts/**").permitAll()
-                        .requestMatchers("/swagger-ui/**").permitAll()
-                        .requestMatchers("/swagger-ui.html").permitAll()
-                        .requestMatchers("/v3/api/docs/**").permitAll()
-                        .requestMatchers("/admin/**").hasRole(Role.ADMIN.name())
-                        .requestMatchers(HttpMethod.GET, "/products/**").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/products/**").hasRole(Role.ADMIN.name())
-                        .requestMatchers(HttpMethod.PUT, "/products/**").hasRole(Role.ADMIN.name())
-                        .requestMatchers(HttpMethod.DELETE, "/products/**").hasRole(Role.ADMIN.name())
-                        .requestMatchers(HttpMethod.POST, "/users").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/auth/refresh").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/checkout/webhook").permitAll()
-                        .anyRequest().authenticated()
+                .authorizeHttpRequests(c -> {
+                        featureSecurityRules.forEach(featureSecurityRule -> featureSecurityRule.configure(c));
+                        c.anyRequest().authenticated();
+                    }
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
                 .exceptionHandling(c -> {

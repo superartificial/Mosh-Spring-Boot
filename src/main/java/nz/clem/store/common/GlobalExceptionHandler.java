@@ -1,6 +1,5 @@
-package nz.clem.store.controllers;
+package nz.clem.store.common;
 
-import nz.clem.store.dtos.ErrorDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
